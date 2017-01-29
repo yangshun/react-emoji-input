@@ -1,5 +1,5 @@
 import add from './add';
 
-export default {
+export {
   add,
 };

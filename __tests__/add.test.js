@@ -1,4 +1,4 @@
-import add from '../src/add';
+import { add } from '../src';
 
 describe('add', () => {
   it('adds positive numbers correctly', () => {
