@@ -1,6 +1,6 @@
 {
   "name": "npm-starter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Starter kit for npm modules in es6",
   "main": "lib/index.js",
   "module": "es/index.js",
