@@ -1,3 +1,3 @@
-# NPM Starter
+# React Component Starter
 
-Starter package for NPM modules in ES6.
+Starter kit for React components written in ES6.
