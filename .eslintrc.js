@@ -2,19 +2,11 @@ module.exports = {
   parser: 'babel-eslint',
   root: true,
   extends: [
-    'airbnb-base',
-    'plugin:flowtype/recommended',
+    'airbnb',
   ],
-  env: {
-    browser: true,
-    node: true,
-  },
-  globals: {
-    expect: true,
-    it: true,
-  },
   plugins: [
-    'flowtype',
+    'react',
+    'jsx-a11y',
     'import',
   ],
   settings: {
@@ -24,15 +16,24 @@ module.exports = {
       },
     },
   },
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+    jest: true,
+  },
   rules: {
     'arrow-body-style': 'off',
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
-    'max-len': ['error', 120],
     'import/extensions': ['error', 'always',
       {
         js: 'never',
-      }
+        jsx: 'never',
+      },
     ],
+    'max-len': ['error', 120],
     'linebreak-style': 'off',
+    'react/jsx-filename-extension': 'off',
+    'react/jsx-space-before-closing': 'off',
   },
 };

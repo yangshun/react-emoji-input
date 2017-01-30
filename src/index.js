@@ -1,6 +1,3 @@
-import add from './add';
+import FooBar from './FooBar';
 
-/* eslint-disable import/prefer-default-export */
-export {
-  add,
-};
+export default FooBar;

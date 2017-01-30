@@ -9,7 +9,7 @@
     "src"
   ],
   "collectCoverageFrom": [
-    "src/**/*.js"
+    "src/**/*.{js,jsx}"
   ],
   "testRegex": "(/__tests__/.*\\.test.js)$"
 }

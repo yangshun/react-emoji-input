@@ -5,18 +5,18 @@ const webpack = require('webpack');
 const env = process.env.NODE_ENV;
 const config = {
   resolve: {
-    root: ['lib'],
-    extensions: ['', '.js'],
+    root: ['src'],
+    extensions: ['', '.js', '.jsx'],
     moduleDirectories: ['node_modules'],
   },
   output: {
-    library: 'npm-starter',
+    library: 'react-component-starter',
     libraryTarget: 'umd',
   },
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
