@@ -23,7 +23,9 @@
     "test": "cross-env BABEL_ENV=commonjs jest --config .jestconfig",
     "test:cov": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
-    "prepublish": "npm run clean && npm run check && npm run build --kill --print"
+    "prepublish": "npm run clean && npm run check && npm run build --kill --print",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -65,7 +67,8 @@
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.0.0",
     "rimraf": "^2.5.4",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "@kadira/storybook": "^2.21.0"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
