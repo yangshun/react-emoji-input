@@ -28,6 +28,11 @@ Or simply use the following command which combines the 3 commands above:
 $ npm run prepublish
 ```
 
+## TODO
+
+- Add development instructions
+- Add instructions on including CSS
+
 ## License
 
 MIT

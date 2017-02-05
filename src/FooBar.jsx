@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-import './FooBar.scss';
-
 class FooBar extends Component {
   render() {
     return (

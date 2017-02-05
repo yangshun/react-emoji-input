@@ -20,14 +20,10 @@ const config = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          cacheDirectory: true
+          cacheDirectory: true,
         },
       },
-      {
-        test: /\.(css|scss)$/,
-        loaders: ['style', 'css', 'sass'],
-      },
-    ]
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
