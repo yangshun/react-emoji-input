@@ -35,5 +35,6 @@ module.exports = {
     'linebreak-style': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-space-before-closing': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
   },
 };

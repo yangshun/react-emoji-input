@@ -1,3 +1,3 @@
-import FooBar from './FooBar';
+import EmojiInput from './EmojiInput';
 
-export default FooBar;
+export default EmojiInput;

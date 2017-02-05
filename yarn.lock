@@ -1885,7 +1885,11 @@ element-class@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/element-class/-/element-class-0.2.2.tgz#9d3bbd0767f9013ef8e1c8ebe722c1402a60050e"
 
-emojis-list@^2.0.0:
+emojis-keywords@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/emojis-keywords/-/emojis-keywords-2.0.0.tgz#9d42a916cec88710dab231cddf784c7d1a1e3409"
+
+emojis-list@^2.0.0, emojis-list@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
 
@@ -5256,6 +5260,10 @@ test-exclude@^3.3.0:
 text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
+
+textarea-caret@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/textarea-caret/-/textarea-caret-3.0.2.tgz#f360c48699aa1abf718680a43a31a850665c2caf"
 
 throat@^3.0.0:
   version "3.0.0"
