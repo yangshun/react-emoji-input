@@ -18,6 +18,7 @@
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/react-component-starter.js",
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/react-component-starter.min.js",
     "build": "npm run build:lib && npm run build:umd && npm run build:umd:min && npm run build:css",
+    "deploy-storybook": "storybook-to-ghpages",
     "test": "cross-env BABEL_ENV=commonjs jest --config .jestconfig",
     "test:cov": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
@@ -46,6 +47,7 @@
   "npmName": "react-component-starter",
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
+    "@kadira/storybook-deployer": "^1.2.0",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.0.0",
