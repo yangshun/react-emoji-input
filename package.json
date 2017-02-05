@@ -39,7 +39,7 @@
     "commonjs",
     "umd"
   ],
-  "author": "Tay Yang Shun",
+  "author": "Tay Yang Shun <tay.yang.shun@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yangshun/react-component-starter/issues"
