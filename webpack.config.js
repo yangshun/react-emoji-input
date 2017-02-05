@@ -23,6 +23,10 @@ const config = {
           cacheDirectory: true
         },
       },
+      {
+        test: /\.(css|scss)$/,
+        loaders: ['style', 'css', 'sass'],
+      },
     ]
   },
   plugins: [
