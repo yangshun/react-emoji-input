@@ -1,18 +1,20 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-class FooBar extends Component {
-  render() {
-    return (
-      <div className="foo-bar">
-        <h3>Foo Bar</h3>
-        {this.props.contents && <p>{this.props.contents}</p>}
-      </div>
-    );
-  }
-}
+const FooBar = (props) => {
+  return (
+    <div className="foo-bar">
+      <h3>Foo Bar</h3>
+      <p>{props.contents}</p>
+    </div>
+  );
+};
 
 FooBar.propTypes = {
   contents: PropTypes.string,
+};
+
+FooBar.defaultProps = {
+  contents: 'Default contents.',
 };
 
 export default FooBar;

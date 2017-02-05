@@ -7,6 +7,7 @@ describe('<FooBar/>', () => {
   it('should render Foo Bar', () => {
     const wrapper = shallow(<FooBar />);
     expect(wrapper.find('h3').text()).toBe('Foo Bar');
+    expect(wrapper.find('p').text()).toBe('Default contents.');
   });
 
   it('should render Foo Bar with contents', () => {
