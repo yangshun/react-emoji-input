@@ -9,11 +9,11 @@ export const emojis = emojiKeywords.map((keyword, index) => {
 });
 
 // Returns a list of { keyword, character } objects with keyword that matches
-// the searchTerm sorted by matching index.
-export function getEmojiMatches(searchTerm) {
+// the query sorted by matching index.
+export function getEmojiMatches(query) {
   const matches = [];
   emojis.forEach((emoji) => {
-    const matchingIndex = emoji.keyword.indexOf(searchTerm);
+    const matchingIndex = emoji.keyword.indexOf(query);
     if (matchingIndex !== -1) {
       matches.push(Object.assign({}, emoji, {
         index: matchingIndex,
