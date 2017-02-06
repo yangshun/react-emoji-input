@@ -123,7 +123,10 @@ class EmojiInput extends Component {
               caretPosition,
               showSuggestions: false,
             };
-            if (fragment.length > 1 && fragment[0] === ':') {
+
+            if (fragment.length > 1 &&
+              fragment[0] === ':' &&
+              fragment[1] !== ':' /* Prevent `::` from matching */) {
               newState.showSuggestions = true;
               newState.fragment = fragment.substring(1);
             }
