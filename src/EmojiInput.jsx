@@ -1,16 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import getCaretCoordinates from 'textarea-caret';
 
-import emojiKeywords from 'emojis-keywords';
-import emojiList from 'emojis-list';
 import Suggestions from './Suggestions';
-
-const emojis = emojiKeywords.map((keyword, index) => {
-  return {
-    keyword: emojiKeywords[index],
-    character: emojiList[index],
-  };
-});
+import { getEmojiMatches } from './utils/emojis';
 
 // Keycodes
 const TAB = 9;
@@ -53,25 +45,13 @@ class EmojiInput extends Component {
   render() {
     let suggestions = [];
     if (this.state.showSuggestions && this.state.fragment) {
-      const matches = [];
-      emojis.forEach((emoji) => {
-        const matchingIndex = emoji.keyword.indexOf(this.state.fragment);
-        if (matchingIndex !== -1) {
-          matches.push(Object.assign({}, emoji, {
-            index: matchingIndex,
-          }));
-        }
-      });
-      matches.sort((a, b) => {
-        return a.index - b.index;
-      });
-      suggestions = matches.slice(0, SUGGESTIONS_LIMIT).map((match) => {
-        return {
-          value: match.character,
-          keyword: match.keyword,
-          label: (<span>{match.character} &nbsp; {match.keyword}</span>),
-        };
-      });
+      suggestions = getEmojiMatches(this.state.fragment)
+                      .slice(0, SUGGESTIONS_LIMIT)
+                      .map((emoji) => ({
+                        value: emoji.character,
+                        keyword: emoji.keyword,
+                        label: (<span>{emoji.character} &nbsp; {emoji.keyword}</span>),
+                      }));
     }
 
     const TextComponent = this.props.input ? 'input' : 'textarea';
