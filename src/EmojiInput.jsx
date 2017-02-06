@@ -15,7 +15,7 @@ const SUGGESTIONS_TOP_OFFSET = 20;
 const DEFAULT_ROWS = 10;
 const DEFAULT_SUGGESTIONS_LIMIT = 5;
 
-const initialState = {
+export const initialState = {
   leftIndex: -1,
   caretPosition: -1,
   showSuggestions: false,
@@ -33,14 +33,18 @@ class EmojiInput extends Component {
     this.resetState = this.resetState.bind(this);
   }
 
-  resetState() {
-    this.setState(initialState);
-  }
-
   onChange(value) {
     if (this.props.onChange) {
       this.props.onChange(value);
     }
+  }
+
+  getValue() {
+    return this.textComponent.value;
+  }
+
+  resetState() {
+    this.setState(initialState);
   }
 
   render() {
