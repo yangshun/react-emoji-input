@@ -44,6 +44,12 @@ class EmojiInput extends Component {
     this.setState(initialState);
   }
 
+  onChange(value) {
+    if (this.props.onChange) {
+      this.props.onChange(value);
+    }
+  }
+
   render() {
     let suggestions = [];
     if (this.state.showSuggestions && this.state.fragment) {
@@ -69,6 +75,13 @@ class EmojiInput extends Component {
     }
 
     const TextComponent = this.props.input ? 'input' : 'textarea';
+    const valueProps = {};
+    if (this.props.value) {
+      valueProps.value = this.props.value;
+    }
+    if (this.props.defaultValue) {
+      valueProps.defaultValue = this.props.defaultValue;
+    }
 
     return (
       <div className={`ei-container ${this.props.className || ''}`}>
@@ -76,7 +89,10 @@ class EmojiInput extends Component {
           className="ei-text-component"
           rows={this.props.rows}
           ref={(textComponent) => { this.textComponent = textComponent; }}
-          defaultValue={this.props.defaultValue}
+          {...valueProps}
+          onChange={(event) => {
+            this.onChange(event.target.value);
+          }}
           onClick={this.resetState}
           onKeyDown={(event) => {
             switch (event.keyCode) {
@@ -84,14 +100,14 @@ class EmojiInput extends Component {
               case DOWN:
                 if (this.suggestions) {
                   this.suggestions.traverseSuggestions(event.keyCode === DOWN);
-                  event.preventDefault();
+                  event.preventDefault(); // Prevent caret movement.
                 }
                 return;
               case TAB:
               case ENTER:
                 if (this.suggestions) {
                   this.suggestions.selectSuggestion();
-                  event.preventDefault();
+                  event.preventDefault(); // Prevent caret movement.
                 }
                 return;
               case ESCAPE:
@@ -115,7 +131,7 @@ class EmojiInput extends Component {
                 break;
               }
             }
-            // Extract word.
+            // Extract word to match with emoji shortnames.
             const fragment = value.substring(leftIndex, caretPosition);
 
             const newState = {
@@ -154,8 +170,9 @@ class EmojiInput extends Component {
               const afterFragment = text.substring(this.state.caretPosition, text.length);
               const newText = `${beforeFragment}${value} ${afterFragment}`;
               this.textComponent.value = newText;
+              this.onChange(newText);
 
-              // In case the focus was lost due to a click of the suggestions.
+              // In case the focus was lost due to clicking of the suggestions.
               this.textComponent.focus();
 
               // Set caret to after the replaced fragment.
@@ -173,17 +190,21 @@ class EmojiInput extends Component {
 EmojiInput.propTypes = {
   className: PropTypes.string,
   defaultValue: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
   input: PropTypes.bool,
-  rows: PropTypes.number,
   shortname: PropTypes.bool,
+  rows: PropTypes.number,
 };
 
 EmojiInput.defaultProps = {
   className: '',
   defaultValue: '',
+  value: '',
+  onChange: () => {},
   input: false,
-  rows: 10,
   shortname: false,
+  rows: 10,
 };
 
 export default EmojiInput;
