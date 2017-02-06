@@ -12,7 +12,8 @@ const UP = 38;
 const DOWN = 40;
 
 const SUGGESTIONS_TOP_OFFSET = 20;
-const SUGGESTIONS_LIMIT = 5;
+const DEFAULT_ROWS = 10;
+const DEFAULT_SUGGESTIONS_LIMIT = 5;
 
 const initialState = {
   leftIndex: -1,
@@ -46,15 +47,16 @@ class EmojiInput extends Component {
     let suggestions = [];
     if (this.state.showSuggestions && this.state.fragment) {
       suggestions = getEmojiMatches(this.state.fragment)
-                      .slice(0, SUGGESTIONS_LIMIT)
-                      .map((emoji) => ({
-                        value: emoji.character,
-                        keyword: emoji.keyword,
-                        label: (<span>{emoji.character} &nbsp; {emoji.keyword}</span>),
-                      }));
+                      .slice(0, this.props.suggestionsLimit)
+                      .map((emoji) => {
+                        return {
+                          value: emoji.character,
+                          keyword: emoji.keyword,
+                          label: (<span>{emoji.character} &nbsp; {emoji.keyword}</span>),
+                        };
+                      });
     }
 
-    const TextComponent = this.props.input ? 'input' : 'textarea';
     const valueProps = {};
     if (this.props.value) {
       valueProps.value = this.props.value;
@@ -62,6 +64,8 @@ class EmojiInput extends Component {
     if (this.props.defaultValue) {
       valueProps.defaultValue = this.props.defaultValue;
     }
+
+    const TextComponent = this.props.input ? 'input' : 'textarea';
 
     return (
       <div className={`ei-container ${this.props.className || ''}`}>
@@ -175,6 +179,7 @@ EmojiInput.propTypes = {
   input: PropTypes.bool,
   shortname: PropTypes.bool,
   rows: PropTypes.number,
+  suggestionsLimit: PropTypes.number,
 };
 
 EmojiInput.defaultProps = {
@@ -184,7 +189,8 @@ EmojiInput.defaultProps = {
   onChange: () => {},
   input: false,
   shortname: false,
-  rows: 10,
+  rows: DEFAULT_ROWS,
+  suggestionsLimit: DEFAULT_SUGGESTIONS_LIMIT,
 };
 
 export default EmojiInput;
